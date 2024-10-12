@@ -1,0 +1,60 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5dc; /* Tan color */
+    color: #006400; /* Dark green color */
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #006400; /* Dark green color */
+    color: #f5f5dc; /* Tan color */
+    text-align: center;
+    padding: 1em 0;
+}
+
+header h1 {
+    margin: 0;
+}
+
+main {
+    padding: 1em;
+}
+
+.about, .services, .hours, .photo {
+    margin-bottom: 2em;
+}
+
+h2 {
+    color: #006400; /* Dark green color */
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li {
+    background-color: #f5f5dc; /* Tan color */
+    color: #006400; /* Dark green color */
+    padding: 0.5em;
+    margin-bottom: 0.5em;
+    border: 1px solid #006400; /* Dark green color */
+}
+
+.photo img {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+footer {
+    background-color: #006400; /* Dark green color */
+    color: #f5f5dc; /* Tan color */
+    text-align: center;
+    padding: 1em 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
