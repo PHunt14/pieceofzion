@@ -82,3 +82,13 @@ nav a:hover {
     height: auto;
     border-radius: 10px;
 }
+
+footer {
+    background-color: #0288d1;
+    color: #fff;
+    text-align: center;
+    padding: 1em 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}

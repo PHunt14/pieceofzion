@@ -4,46 +4,98 @@ body {
     color: #ecf0f1; /* Light grey color */
     margin: 0;
     padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.centered-title {
+    text-align: center;
+    margin: 1em 0;
 }
 
 header {
-    background-color: #34495e; /* Darker blue color */
     color: #ecf0f1; /* Light grey color */
     text-align: center;
     padding: 1em 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    position: relative;
 }
 
-header h1 {
-    margin: 0;
+.site-nav {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    background-color: #2c3e50; /* Dark blue color */
+    padding: 1em;
 }
 
-nav ul {
+.site-nav ul {
     list-style-type: none;
     padding: 0;
+    margin: 0;
     display: flex;
-    justify-content: center;
-    background-color: #2c3e50; /* Dark blue color */
+    flex-direction: column;
+    align-items: flex-start;
 }
 
-nav ul li {
-    margin: 0 1em;
+.site-nav ul li {
+    margin: 0.5em 0;
 }
 
-nav ul li a {
+.site-nav ul li a {
     color: #ecf0f1; /* Light grey color */
     text-decoration: none;
     font-weight: bold;
 }
 
-nav ul li a:hover {
+.site-nav ul li a:hover {
+    text-decoration: underline;
+}
+
+.example-nav {
+    position: absolute;
+    right: 0;
+    top: 0;
+    /* background-color: #34495e;*/
+    padding: 1em;
+}
+
+.example-nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.example-nav ul li {
+    margin: 0 0.5em;
+}
+
+.example-nav ul li a {
+    color: #ecf0f1; /* Light grey color */
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.9em;
+}
+
+.example-nav ul li a:hover {
     text-decoration: underline;
 }
 
 main {
     padding: 1em;
+    margin-left: 200px; /* Adjust based on the width of the site-nav */
+    width: calc(100% - 200px); /* Adjust based on the width of the site-nav */
 }
 
-.services {
+.services, .contact-form, .map {
     margin-bottom: 2em;
 }
 
@@ -62,6 +114,43 @@ ul li {
     padding: 0.5em;
     margin-bottom: 0.5em;
     border: 1px solid #ecf0f1; /* Light grey color */
+}
+
+.contact-form form {
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #34495e; /* Darker blue color */
+    padding: 1em;
+    border-radius: 5px;
+}
+
+.contact-form label {
+    margin-top: 0.5em;
+}
+
+.contact-form input, .contact-form textarea {
+    padding: 0.5em;
+    margin-top: 0.5em;
+    border: 1px solid #ecf0f1; /* Light grey color */
+    background-color: #2c3e50; /* Dark blue color */
+    color: #ecf0f1; /* Light grey color */
+    border-radius: 3px;
+}
+
+.contact-form button {
+    margin-top: 1em;
+    padding: 0.5em;
+    border: none;
+    background-color: #1abc9c; /* Teal color */
+    color: #ecf0f1; /* Light grey color */
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+.contact-form button:hover {
+    background-color: #16a085; /* Darker teal color */
 }
 
 footer {
