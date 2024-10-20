@@ -1,11 +1,8 @@
-name: Build and Test
+name: Build, Test, and Publish
 
 on:
   push:
-    branches-ignore:
-      - main
-  pull_request:
-    branches-ignore:
+    branches:
       - main
 
 jobs:
@@ -23,11 +20,25 @@ jobs:
       uses: actions/cache@v2
       with:
         path: /tmp/.buildx-cache
-        key: ${{ runner.os }}-docker-${{ github.sha }}
+        key: ${{ runner.os }}-buildx-${{ github.sha }}
         restore-keys: |
-          ${{ runner.os }}-docker-
+          ${{ runner.os }}-buildx-
 
     - name: Build and Test Docker Image
       run: |
-        docker buildx build --tag my-nodejs-app:latest .
+        docker build --cache-from=type=local,src=/tmp/.buildx-cache --cache-to=type=local,dest=/tmp/.buildx-cache --tag my-nodejs-app .
         docker run my-nodejs-app npm test
+
+    - name: Log in to Amazon ECR
+      id: login-ecr
+      uses: aws-actions/amazon-ecr-login@v1
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        region: us-east-1
+
+    - name: Build, tag, and push image to ECR
+      run: |
+        IMAGE_URI=YOUR_ACCOUNT_ID.dkr.ecr.us-east-1.amazonaws.com/my-nodejs-app
+        docker tag my-nodejs-app:latest $IMAGE_URI:latest
+        docker push $IMAGE_URI:latest

@@ -22,12 +22,12 @@ jobs:
     - name: Cache Docker layers
       uses: actions/cache@v2
       with:
-        path: /var/lib/containerd/daemon/images
-        key: ${{ runner.os }}-buildx-${{ github.sha }}
+        path: /tmp/.buildx-cache
+        key: ${{ runner.os }}-docker-${{ github.sha }}
         restore-keys: |
-          ${{ runner.os }}-buildx-
+          ${{ runner.os }}-docker-
 
     - name: Build and Test Docker Image
       run: |
-        docker buildx build --cache-from=type=local,src=/var/lib/containerd/daemon/images --cache-to=type=local,dest=/var/lib/containerd/daemon/images --tag my-nodejs-app .
+        docker buildx build --tag my-nodejs-app:latest .
         docker run my-nodejs-app npm test
