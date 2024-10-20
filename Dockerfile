@@ -23,8 +23,9 @@ USER web
 # Make port 80 available to the world outside this container
 EXPOSE 80
 
-# Define environment variable
+# Define environment variables
 ENV NODE_ENV=production
+ENV MAP_API_KEY=""
 
-# Run app.js when the container launches
+# Run server.js when the container launches
 CMD ["node", "server.js"]
