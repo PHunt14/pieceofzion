@@ -1,8 +1,8 @@
 # Use an official Node.js runtime as a parent image
 FROM node:20.18.0 AS builder
 
-# Create a non-root user and set permissions
-RUN useradd -m web && chown -R web:web /app
+# Create the /app directory and a non-root user, then set permissions
+RUN mkdir -p /app && useradd -m web && chown -R web:web /app
 
 # Set the working directory in the container to /app
 WORKDIR /app
