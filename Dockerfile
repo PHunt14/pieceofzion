@@ -2,7 +2,7 @@
 FROM node:20.18.0 AS builder
 
 # Create the /app directory and a non-root user, then set permissions
-RUN mkdir -p /app && useradd -m web && chown -R web:web /app
+RUN useradd -m web
 
 # Set the working directory in the container to /app
 WORKDIR /app
@@ -18,6 +18,9 @@ COPY . .
 
 # Use a new stage to run the application
 FROM node:20.18.0
+
+# Create the same user in the final stage
+RUN useradd -m web
 
 # Set the working directory in the container to /app
 WORKDIR /app
