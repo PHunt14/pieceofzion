@@ -23,11 +23,11 @@ jobs:
       uses: actions/cache@v2
       with:
         path: /tmp/.buildx-cache
-        key: ${{ runner.os }}-docker-${{ github.sha }}
+        key: ${{ runner.os }}-buildx-${{ github.sha }}
         restore-keys: |
-          ${{ runner.os }}-docker-
+          ${{ runner.os }}-buildx-
 
     - name: Build and Test Docker Image
       run: |
-        docker buildx build --tag my-nodejs-app:latest .
+        docker buildx build --cache-from=type=local,src=/tmp/.buildx-cache --cache-to=type=local,dest=/tmp/.buildx-cache --tag my-nodejs-app .
         docker run my-nodejs-app npm test
