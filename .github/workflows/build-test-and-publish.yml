@@ -24,10 +24,13 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-buildx-
 
-    - name: Build and Test Docker Image
+    - name: Build Docker Image
       run: |
-        docker build --cache-from=type=local,src=/tmp/.buildx-cache --cache-to=type=local,dest=/tmp/.buildx-cache --tag my-nodejs-app .
-        docker run my-nodejs-app npm test
+        docker buildx build --cache-from=type=local,src=/tmp/.buildx-cache --cache-to=type=local,dest=/tmp/.buildx-cache --tag pieceofzion:latest --load .
+    
+    - name: Test Docker Image
+      run: |
+        docker run pieceofzion:latest npm test
 
     - name: Log in to Amazon ECR
       id: login-ecr
@@ -39,6 +42,6 @@ jobs:
 
     - name: Build, tag, and push image to ECR
       run: |
-        IMAGE_URI=YOUR_ACCOUNT_ID.dkr.ecr.us-east-1.amazonaws.com/my-nodejs-app
-        docker tag my-nodejs-app:latest $IMAGE_URI:latest
+        IMAGE_URI=YOUR_ACCOUNT_ID.dkr.ecr.us-east-1.amazonaws.com/pieceofzion
+        docker tag pieceofzion:latest $IMAGE_URI:latest
         docker push $IMAGE_URI:latest

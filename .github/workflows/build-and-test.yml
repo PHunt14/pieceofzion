@@ -27,7 +27,10 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-buildx-
 
-    - name: Build and Test Docker Image
+    - name: Build Docker Image
       run: |
-        docker buildx build --cache-from=type=local,src=/tmp/.buildx-cache --cache-to=type=local,dest=/tmp/.buildx-cache --tag my-nodejs-app .
-        docker run my-nodejs-app npm test
+        docker buildx build --cache-from=type=local,src=/tmp/.buildx-cache --cache-to=type=local,dest=/tmp/.buildx-cache --tag pieceofzion:latest --load .
+    
+    - name: Test Docker Image
+      run: |
+        docker run pieceofzion:latest npm test
