@@ -3,15 +3,15 @@ const path = require('path');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Import AWS SDK and configure it
-const AWS = require('aws-sdk');
-AWS.config.update({ region: 'us-east-1' }); // Replace with your AWS region
+// Import AWS SDK v3 and configure it
+const { SecretsManagerClient, GetSecretValueCommand } = require('@aws-sdk/client-secrets-manager');
+const client = new SecretsManagerClient({ region: 'us-east-1' }); // Replace with your AWS region
 
 // Function to get secret value
 async function getSecretValue(secretName) {
-    const client = new AWS.SecretsManager();
     try {
-        const data = await client.getSecretValue({ SecretId: secretName }).promise();
+        const command = new GetSecretValueCommand({ SecretId: MAP_API_KEY });
+        const data = await client.send(command);
         if ('SecretString' in data) {
             return data.SecretString;
         }
