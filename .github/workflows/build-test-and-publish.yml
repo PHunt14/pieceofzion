@@ -41,10 +41,14 @@ jobs:
         AWS_REGION: us-east-1
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-      
-
+    
     - name: Build, tag, and push image to ECR
       run: |
         IMAGE_URI=658192689501.dkr.ecr.us-east-1.amazonaws.com/web/pieceofzion
         docker tag pieceofzion:latest $IMAGE_URI:latest
         docker push $IMAGE_URI:latest
+      env:
+        AWS_REGION: us-east-1
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      
