@@ -42,6 +42,6 @@ jobs:
 
     - name: Build, tag, and push image to ECR
       run: |
-        IMAGE_URI=YOUR_ACCOUNT_ID.dkr.ecr.us-east-1.amazonaws.com/pieceofzion
+        IMAGE_URI=658192689501.dkr.ecr.us-east-1.amazonaws.com/web/pieceofzion
         docker tag pieceofzion:latest $IMAGE_URI:latest
         docker push $IMAGE_URI:latest
