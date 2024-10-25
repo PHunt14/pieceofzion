@@ -1,4 +1,5 @@
 name: Build, Test, and Deploy
+name: Build, Test, and Deploy
 
 on:
   push:
@@ -12,10 +13,12 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v2
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
-  
+
       - name: Cache Docker layers
         uses: actions/cache@v2
         with:
@@ -23,15 +26,15 @@ jobs:
           key: ${{ runner.os }}-buildx-${{ github.sha }}
           restore-keys: |
             ${{ runner.os }}-buildx-
-  
+
       - name: Build Docker Image
         run: |
           docker buildx build --cache-from=type=local,src=/tmp/.buildx-cache --cache-to=type=local,dest=/tmp/.buildx-cache --tag pieceofzion:latest --load .
-      
+
       - name: Test Docker Image
         run: |
           docker run pieceofzion:latest npm test
-      
+
       - name: Log in to Amazon ECR
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v1
@@ -41,7 +44,7 @@ jobs:
           AWS_REGION: us-east-1
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          
+
       - name: Docker login to ECR
         run: |
           aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 658192689501.dkr.ecr.us-east-1.amazonaws.com
@@ -53,17 +56,12 @@ jobs:
       - name: Build, tag, and push image to ECR
         run: |
           IMAGE_URI=658192689501.dkr.ecr.us-east-1.amazonaws.com/web/pieceofzion
+          DATE_TAG=$(date +'%Y%m%d')
           docker tag pieceofzion:latest $IMAGE_URI:latest
+          docker tag pieceofzion:latest $IMAGE_URI:${DATE_TAG}-${{ github.short_sha }}
           docker push $IMAGE_URI:latest
+          docker push $IMAGE_URI:${DATE_TAG}-${{ github.short_sha }}
         env:
           AWS_REGION: us-east-1
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-
-      - name: Trigger Amplify Deployment
-        run: |
-          curl -X POST \
-          -H "Content-Type: application/json" \
-          -H "Authorization: token ${{ secrets.AMPLIFY_GITHUB_TOKEN }}" \
-          --data '{"commitId":"${{ github.sha }}","branchName":"main"}' \
-          https://yourapp.amplifyapp.com/
