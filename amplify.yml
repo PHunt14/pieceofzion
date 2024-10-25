@@ -10,21 +10,14 @@ applications:
           commands:
             - echo Pulling Docker image from ECR...
             - docker pull 658192689501.dkr.ecr.us-east-1.amazonaws.com/web/pieceofzion:latest
-    frontend:
-      phases:
-        preBuild:
-          commands:
-            - echo Setting up frontend...
-        build:
-          commands:
-            - echo Building frontend...
-    artifacts:
-      baseDirectory: /
-      files:
-        - '**/*'
-    cache:
-      paths:
-        - node_modules/**/*
+            - docker run -d -p 80:80 --name pieceofzion 658192689501.dkr.ecr.us-east-1.amazonaws.com/web/pieceofzion:latest
+      artifacts:
+        baseDirectory: /
+        files:
+          - '**/*'
+      cache:
+        paths:
+          - node_modules/**/*
 env:
   variables:
     AWS_REGION: "us-east-1"
