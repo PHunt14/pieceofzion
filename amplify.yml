@@ -1,0 +1,32 @@
+version: 1.0
+applications:
+  - backend:
+      phases:
+        preBuild:
+          commands:
+            - echo Logging in to Amazon ECR...
+            - aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 658192689501.dkr.ecr.us-east-1.amazonaws.com
+        build:
+          commands:
+            - echo Pulling Docker image from ECR...
+            - docker pull 658192689501.dkr.ecr.us-east-1.amazonaws.com/web/pieceofzion:latest
+    frontend:
+      phases:
+        preBuild:
+          commands:
+            - echo Setting up frontend...
+        build:
+          commands:
+            - echo Building frontend...
+    artifacts:
+      baseDirectory: /
+      files:
+        - '**/*'
+    cache:
+      paths:
+        - node_modules/**/*
+env:
+  variables:
+    AWS_REGION: "us-east-1"
+    DEPLOY_AWS_ACCESS_KEY_ID: ${{ secrets.DEPLOY_AWS_ACCESS_KEY_ID }}
+    DEPLOY_AWS_SECRET_ACCESS_KEY: ${{ secrets.DEPLOY_AWS_SECRET_ACCESS_KEY }}
