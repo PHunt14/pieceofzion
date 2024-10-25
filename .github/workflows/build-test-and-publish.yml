@@ -12,8 +12,6 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-      - name: Checkout code
-        uses: actions/checkout@v2
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
@@ -56,10 +54,11 @@ jobs:
         run: |
           IMAGE_URI=658192689501.dkr.ecr.us-east-1.amazonaws.com/web/pieceofzion
           DATE_TAG=$(date +'%Y%m%d')
+          SHORT_SHA=${{ github.sha }} && SHORT_SHA=${SHORT_SHA:0:7}
           docker tag pieceofzion:latest $IMAGE_URI:latest
-          docker tag pieceofzion:latest $IMAGE_URI:${DATE_TAG}-${{ github.short_sha }}
+          docker tag pieceofzion:latest $IMAGE_URI:${DATE_TAG}-${SHORT_SHA}
           docker push $IMAGE_URI:latest
-          docker push $IMAGE_URI:${DATE_TAG}-${{ github.short_sha }}
+          docker push $IMAGE_URI:${DATE_TAG}-${SHORT_SHA}
         env:
           AWS_REGION: us-east-1
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
