@@ -1,6 +1,7 @@
 version: 1.0
 applications:
-  - frontend:
+  - appRoot: frontend  # Specify your frontend root directory
+    frontend:
       phases:
         preBuild:
           commands:
@@ -16,7 +17,8 @@ applications:
         paths:
           - node_modules/**/*
 
-  - backend:
+  - appRoot: backend  # Specify your backend root directory
+    backend:
       phases:
         preBuild:
           commands:
