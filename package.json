@@ -14,7 +14,7 @@
   "dependencies": {
     "@aws-sdk/client-secrets-manager": "^3.675.0",
     "ejs": "^3.1.10",
-    "express": "^4.21.1"
+    "express": "^4.21.2"
   },
   "devDependencies": {
     "jest": "^29.7.0",
