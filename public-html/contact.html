@@ -5,27 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="https://sdk.amazonaws.com/js/aws-sdk-2.814.0.min.js"></script>
-    <script>
-        const apiKey = '<%= awsApiKey %>';
-
-        function initMap() {
-            const map = new maplibregl.Map({
-                container: 'map',
-                style: `https://maps.geo.us-east-1.amazonaws.com/maps/v0/maps/mapName/style-descriptor?key=${apiKey}`, // Replace 'mapName' with your map name
-                center: [-77.4564, 39.6837], // Coordinates for MD 21780
-                zoom: 10
-            });
-
-            new maplibregl.Marker()
-                .setLngLat([-77.4564, 39.6837])
-                .addTo(map);
-        }
-    </script>
-    <script src="https://unpkg.com/maplibre-gl/dist/maplibre-gl.js"></script>
-    <link href="https://unpkg.com/maplibre-gl/dist/maplibre-gl.css" rel="stylesheet" />
 </head>
-<body onload="initMap()">
+<body">
     <h1 class="centered-title">Contact Us</h1>
     <header>
         <nav class="site-nav">
@@ -33,7 +14,7 @@
                 <li><a href="index.html">Home</a></li>
                 <li><a href="services.html">Services</a></li>
                 <li><a href="examples.html">Examples</a></li>
-                <li><a href="/contact">Contact</a></li>
+                <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav>
     </header>
@@ -49,10 +30,6 @@
                 <textarea id="message" name="message" rows="4" required></textarea>
                 <button type="submit">Send</button>
             </form>
-        </section>
-        <section class="map">
-            <h2>Our Location</h2>
-            <div id="map" style="height: 400px; width: 100%;"></div>
         </section>
     </main>
     <footer>
