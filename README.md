@@ -23,3 +23,4 @@
         - home button in all of the footers
         - perhaps we go to more earth-y shades?
         -  get rid of the white outlines, at least make them stop at a certain point instead of continuing the whole way across the screen
+[ ] SEO
