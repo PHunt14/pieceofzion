@@ -14,6 +14,11 @@ body {
     margin: 1em 0;
 }
 
+.contact-heading {
+    text-align: center;
+    margin-bottom: 1em;
+}
+
 header {
     color: #ecf0f1; /* Light grey color */
     text-align: center;
@@ -59,6 +64,16 @@ header {
     text-decoration: underline;
 }
 
+a {
+    color: #5a6f82; /* Grey-blue color */
+    text-decoration: none; /* Remove underline */
+}
+
+a:hover {
+    color: #4a5968; /* Darker grey-blue color */
+    text-decoration: underline; /* Add underline on hover */
+}
+
 main {
     padding: 1em;
     margin-top: 60px; /* Adjust based on the height of the site-nav */
@@ -72,13 +87,13 @@ main {
 .toggle-section {
     background-color: #5a6f82; /* Grey-blue color */
     color: #ecf0f1; /* Light grey color */
-    padding: 0.5em 1em;
+    padding: 0.5em 2em; /* Increase padding on left and right */
     border: none;
     cursor: pointer;
     border-radius: 5px;
     margin-bottom: 1em;
-    display: block;
-    width: 100%;
+    display: inline-block; /* Change to inline-block */
+    width: auto; /* Adjust width to auto */
     text-align: left;
     font-size: 1.2em;
 }
@@ -108,6 +123,8 @@ ul li {
     padding: 0.5em;
     margin-bottom: 0.5em;
     border: 1px solid #ecf0f1; /* Light grey color */
+    display: flex;
+    width: auto;
 }
 
 .contact-form form {
