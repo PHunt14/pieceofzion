@@ -78,9 +78,9 @@ a:hover {
 }
 
 main {
+    flex-grow: 1;
     padding: 1em;
     margin-top: 60px; /* Adjust based on the height of the site-nav */
-    flex-grow: 1;
 }
 
 .services, .contact-form, .map, .web-services, .homesteading, .woodworking {
@@ -127,7 +127,7 @@ ul li {
 }
 
 .contact-form {
-    background-color: #fff;
+    background-color: #2c3e50;
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -152,7 +152,7 @@ ul li {
 }
 
 .contact-form button {
-    background-color: #0288d1;
+    background-color: #5a6f82;
     color: #fff;
     padding: 10px 20px;
     border: none;
@@ -166,11 +166,11 @@ ul li {
 }
 
 footer {
-    background-color: #0288d1;
+    background-color: #2c3e50;
     color: #fff;
     text-align: center;
     padding: 1em 0;
-    position: fixed;
+    position: relative;
     width: 100%;
     bottom: 0;
     z-index: 1000; /* Ensure the footer stays on top */
