@@ -11,7 +11,7 @@ body {
 
 .centered-title {
     text-align: center;
-    margin: 1em 0;
+    margin: 100px 0 1em; /* Add top margin to account for the height of the fixed nav */
 }
 
 .contact-heading {
