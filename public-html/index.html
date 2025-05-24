@@ -45,9 +45,12 @@
             </form>
         </section>
     </main>
-    <footer>
-        <p>© 2025 Zion Small Business Services. All rights reserved. Proudly serving Western Maryland and supporting our local community.</p>
-    </footer>
+    <footer id="site-footer"></footer>
+    <script>
+      fetch('../includes/footer.html')
+        .then(res => res.text())
+        .then(html => document.getElementById('site-footer').innerHTML = html);
+    </script>
     <script src="script.js"></script>
 </body>
 </html>

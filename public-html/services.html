@@ -20,8 +20,11 @@
         <p>Our most popular offerings are our <a href="services/webDesign.html">Web Design</a> services</p>
         <p>Sabillasville, MD; Hagerstown, MD; Frederick, MD; Thurmont, MD; Waynesboro, PA; Greencastle, PA; Gettysburg, PA; Middletown, MD; Hamiltonban Township, PA; Washington County Maryland; Frederick County Maryland</p>
     </main>
-    <footer>
-        <p>© 2025 Zion Small Business Services. All rights reserved. Proudly serving Western Maryland and supporting our local community.</p>
-    </footer>
+    <footer id="site-footer"></footer>
+    <script>
+      fetch('../includes/footer.html')
+        .then(res => res.text())
+        .then(html => document.getElementById('site-footer').innerHTML = html);
+    </script>
 </body>
 </html>

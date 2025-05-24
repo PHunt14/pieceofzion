@@ -22,8 +22,11 @@
         <p>$150 to get started and $150 a month gets a basic business site with monthly updates</p>
         <p>Looking for a more complex setup? We have the right solution for you! Contact us today!</p>
     </main>
-    <footer>
-        <p>© 2025 Zion Small Business Services. All rights reserved. Proudly serving Western Maryland and supporting our local community.</p>
-    </footer>
+    <footer id="site-footer"></footer>
+    <script>
+      fetch('../includes/footer.html')
+        .then(res => res.text())
+        .then(html => document.getElementById('site-footer').innerHTML = html);
+    </script>
 </body>
 </html>
