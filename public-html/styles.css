@@ -30,11 +30,12 @@ header {
     position: relative;
 }
 
+/* --- Navigation Bar Styles --- */
 .site-nav {
     position: fixed;
     top: 0;
     width: 100%;
-    background-color: #2c3e50; /* Dark blue color */
+    background-color: #2c3e50; /* Dark blue */
     padding: 1em;
     display: flex;
     justify-content: center;
@@ -42,39 +43,82 @@ header {
 }
 
 .site-nav ul {
-    list-style-type: none;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.site-nav li {
+    position: relative;
+}
+
+.site-nav a {
+    display: block;
+    padding: 10px 16px;
+    text-decoration: none;
+    color: #ecf0f1; /* Light grey */
+    background: #2c3e50; /* Dark blue */
+    transition: background 0.2s, color 0.2s;
+    border: none;
+}
+
+.site-nav a:hover,
+.site-nav .dropdown:hover > a {
+    background-color: #34495e; /* Slightly lighter blue */
+    color: #fff;
+}
+
+/* --- Dropdown Styles --- */
+.dropdown-content {
+    display: none !important;
+    position: absolute;
+    left: 0;
+    top: 100%;
+    background: #2c3e50; /* Match nav bar */
+    min-width: 160px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    z-index: 1;
+    padding: 0;
+    flex-direction: column;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block !important;
+}
+
+.site-nav .dropdown-content li {
+    display: block !important;
+    background: none;
+    color: #ecf0f1;
+    border: none;
     padding: 0;
     margin: 0;
-    display: flex;
-    justify-content: center;
 }
 
-.site-nav ul li {
-    margin: 0 1em;
-}
-
-.site-nav ul li a {
-    color: #ecf0f1; /* Light grey color */
+.dropdown-content a {
+    color: #ecf0f1 !important;
+    background: #2c3e50;
+    padding: 10px 16px;
     text-decoration: none;
-    padding: 1em;
+    display: block;
+    width: 100%;
 }
 
-.site-nav ul li a:hover {
-    background-color: #34495e; /* Darker blue color */
+.dropdown-content a:hover {
+    background: #34495e;
+    color: #fff;
 }
 
-h1, h2 {
-    text-align: center;
-}
-
-a {
-    color: #5a6f82; /* Grey-blue color */
-    text-decoration: none; /* Remove underline */
-}
-
-a:hover {
-    color: #4a5968; /* Darker grey-blue color */
-    text-decoration: underline; /* Add underline on hover */
+/* --- Remove conflicting global list styles for nav --- */
+.site-nav ul li,
+.site-nav .dropdown-content li {
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    margin: 0;
+    display: block;
 }
 
 main {
@@ -188,4 +232,29 @@ footer {
 
 nav ul li a.flash {
     animation: flash 1s infinite;
+}
+
+/* Only style main content lists, not nav or dropdowns */
+main ul li,
+.services ul li,
+.web-services ul li,
+.homesteading ul li,
+.woodworking ul li {
+    background-color: #34495e;
+    color: #ecf0f1;
+    padding: 0.5em;
+    margin-bottom: 0.5em;
+    border: 1px solid #ecf0f1;
+    display: flex;
+    width: auto;
+}
+
+/* Reset dropdown list items */
+.site-nav .dropdown-content li {
+    background: none;
+    color: #333;
+    border: none;
+    padding: 0;
+    margin: 0;
+    display: block;
 }

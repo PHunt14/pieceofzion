@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Services - Zion Small Business Services</title>
+    <link rel="stylesheet" href="../styles.css">
+    <base href="/web/pieceofzion/public-html/">
+</head>
+<body>
+    <h1 class="centered-title">Small Business Services</h1>
+    <header>
+        <div id="site-nav"></div>
+    </header>
+    <script>
+        fetch('includes/nav.html')
+            .then(res => res.text())
+            .then(html => document.getElementById('site-nav').innerHTML = html);
+    </script>
+    <main>
+    </main>
+    <footer id="site-footer"></footer>
+    <script>
+      fetch('../includes/footer.html')
+        .then(res => res.text())
+        .then(html => document.getElementById('site-footer').innerHTML = html);
+    </script>
+</body>
+</html>

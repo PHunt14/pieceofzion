@@ -4,25 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zion Small Business Services - Serving Western Maryland</title>
-    <meta name="description" content="Zion Industries provides top-notch web services for small businesses in Western Maryland.">
+    <meta name="description" content="Zion Small Business Services provides top-notch web services for small businesses in Western Maryland.">
     <meta name="keywords" content="Western Maryland, small business, local services, web design, SEO, web hosting">
     <link rel="stylesheet" href="styles.css">
+    <base href="/web/pieceofzion/public-html/">
 </head>
 <body>
-    <h1 class="centered-title">Zion Industries - Your Local Partner in Excellence</h1>
+    <h1 class="centered-title">Zion Small Business Services</h1>
+    <h2>Your Local Partner in Excellence</h2>
     <header>
-        <nav class="site-nav">
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="web-services.html">Web Services</a></li>
-            </ul>
-        </nav>
+        <div id="site-nav"></div>
     </header>
+    <script>
+        fetch('includes/nav.html')
+            .then(res => res.text())
+            .then(html => document.getElementById('site-nav').innerHTML = html);
+    </script>
     <main>
         <section class="web-services">
             <h2>Our Services</h2>
             <div class="section-content" style="display: block;">
-                <p>At Zion Industries, we offer a range services tailored for small businesses in Western Maryland. Our services include:</p>
+                <p>At Zion Small Business Services, we offer a range services tailored for small businesses in Western Maryland. Our services include:</p>
                 <ul>
                     <li>Web Design: Crafting visually stunning and user-friendly websites.</li>
                     <li>SEO (Search Engine Optimization): Ensuring your business ranks higher on search engines.</li>
@@ -44,9 +46,12 @@
             </form>
         </section>
     </main>
-    <footer>
-        <p>© 2025 Zion Industries. All rights reserved. Proudly serving Western Maryland and supporting our local community.</p>
-    </footer>
+    <footer id="site-footer"></footer>
+    <script>
+      fetch('includes/footer.html')
+        .then(res => res.text())
+        .then(html => document.getElementById('site-footer').innerHTML = html);
+    </script>
     <script src="script.js"></script>
 </body>
 </html>
