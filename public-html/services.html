@@ -5,16 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Web Services - Zion Small Business Services</title>
     <link rel="stylesheet" href="styles.css">
+    <base href="/web/pieceofzion/public-html/">
 </head>
 <body>
     <h1 class="centered-title">Small Business Services</h1>
     <header>
-        <nav class="site-nav">
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="services.html">Services</a></li>
-            </ul>
+        <div id="site-nav"></div>
     </header>
+    <script>
+        fetch('includes/nav.html')
+            .then(res => res.text())
+            .then(html => document.getElementById('site-nav').innerHTML = html);
+    </script>
     <main>
         <p>We offer many service to small business in Maryland and Pennsylvannia.</p>
         <p>Our most popular offerings are our <a href="services/webDesign.html">Web Design</a> services</p>

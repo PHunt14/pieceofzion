@@ -7,24 +7,19 @@
     <meta name="description" content="Zion Small Business Services provides top-notch web services for small businesses in Western Maryland.">
     <meta name="keywords" content="Western Maryland, small business, local services, web design, SEO, web hosting">
     <link rel="stylesheet" href="styles.css">
+    <base href="/web/pieceofzion/public-html/">
 </head>
 <body>
     <h1 class="centered-title">Zion Small Business Services</h1>
     <h2>Your Local Partner in Excellence</h2>
     <header>
-        <nav class="site-nav">
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li class="dropdown">
-                <a href="services.html">Services</a>
-                <ul class="dropdown-content">
-                    <li><a href="services/smallBusinessServices.html">Web Services</a></li>
-                    <li><a href="services/plans.html">Plans</a></li>
-                </ul>
-            </li>
-        </ul>
-    </nav>
+        <div id="site-nav"></div>
     </header>
+    <script>
+        fetch('includes/nav.html')
+            .then(res => res.text())
+            .then(html => document.getElementById('site-nav').innerHTML = html);
+    </script>
     <main>
         <section class="web-services">
             <h2>Our Services</h2>

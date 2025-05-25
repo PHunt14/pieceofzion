@@ -5,17 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Web Services - Zion Small Business Services</title>
     <link rel="stylesheet" href="../styles.css">
+    <base href="/web/pieceofzion/public-html/">
 </head>
 <body>
     <h1 class="centered-title">Small Business Plans</h1>
     <header>
-        <nav class="site-nav">
-            <ul>
-                <li><a href="../index.html">Home</a></li>
-                <li><a href="../services.html">Services</a></li>
-            </ul>
-        </nav>
+        <div id="site-nav"></div>
     </header>
+    <script>
+        fetch('includes/nav.html')
+            .then(res => res.text())
+            .then(html => document.getElementById('site-nav').innerHTML = html);
+    </script>
     <main>
         <p>Our basic plan for those just starting out is easily affordable!</p>
         <p>$50 to get started and $50 a month gets a basic hosted website with 3 pages</p>
