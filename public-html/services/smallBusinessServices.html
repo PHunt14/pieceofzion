@@ -4,15 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Web Services - Zion Small Business Services</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../styles.css">
 </head>
 <body>
     <h1 class="centered-title">Small Business Services</h1>
     <header>
         <nav class="site-nav">
             <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="services.html">Web Services</a></li>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../services.html">Services</a></li>
             </ul>
         </nav>
     </header>
@@ -20,7 +20,7 @@
     </main>
     <footer id="site-footer"></footer>
     <script>
-      fetch('../includes/footer.html')
+      fetch('../../includes/footer.html')
         .then(res => res.text())
         .then(html => document.getElementById('site-footer').innerHTML = html);
     </script>
