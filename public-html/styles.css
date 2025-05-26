@@ -296,3 +296,19 @@ main ul li,
 .tab-content.active {
     display: block;
 }
+.bronze-tab {
+    background: linear-gradient(135deg, #b08d57 60%, #22303a 100%);
+    color: #fff8e1;
+}
+.bronze-tab .tab {
+    background: #b08d57;
+    color: #22303a;
+}
+
+/* Bronze tab button when active or hovered */
+#tab-bronze.active,
+#tab-bronze:focus,
+#tab-bronze:hover {
+    background: linear-gradient(135deg, #b08d57 80%, #8c6c3f 100%);
+    color: #fff8e1;
+}
