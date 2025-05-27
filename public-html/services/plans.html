@@ -18,6 +18,7 @@
             .then(html => document.getElementById('site-nav').innerHTML = html);
     </script>
     <main>
+        <h2>Basic Plans</h2>
         <div class="tabs" role="tablist" aria-label="Plans">
             <button class="tab active" id="tab-starter" role="tab" aria-selected="true" aria-controls="panel-starter" tabindex="0" data-tab="starter">Starter</button>
             <button class="tab" id="tab-bronze" role="tab" aria-selected="false" aria-controls="panel-bronze" tabindex="-1" data-tab="bronze">Bronze</button>
@@ -28,7 +29,28 @@
         <div id="panel-bronze" class="tab-content bronze-tab" role="tabpanel" aria-labelledby="tab-bronze" hidden>
             <p>$150 to get started and $150 a month gets a basic business site with monthly updates</p>
         </div>
-        <p>Looking for a more complex setup? We have the right solution for you! Contact us today!</p>
+
+        <!-- Features Section Start -->
+        <section class="plan-features">
+            <h2>Features Included With Every Plan</h2>
+            <div class="features-list-box">
+                <ul>
+                    <li>99.9% Uptime Guarantee</li>
+                    <li>1 Monthly Website Update</li>
+                    <li>Enterprise-Grade Security</li>
+                    <li>Daily Automated Backups</li>
+                    <li>SSL Certificate Included</li>
+                    <li>24/7 Email Support</li>
+                    <li>Fast SSD Hosting</li>
+                    <li>Free Domain Registration (first year)</li>
+                    <li>Mobile-Friendly Design</li>
+                    <li>Easy-to-Use Control Panel</li>
+                </ul>
+            </div>
+        </section>
+        <!-- Features Section End -->
+
+        <p>Looking for a more complex setup? We have the right solution for you! <a href="contact.html">Contact us </a> today!</p>
     </main>
     <footer id="site-footer"></footer>
     <script>
