@@ -312,3 +312,48 @@ main ul li,
     background: linear-gradient(135deg, #b08d57 80%, #8c6c3f 100%);
     color: #fff8e1;
 }
+
+.plan-features {
+    margin: 2em 0;
+}
+
+.plan-features h2 {
+    margin-top: 0;
+    color: #ffd700;
+    font-size: 1.0em;
+    letter-spacing: 1px;
+}
+
+.features-list-box {
+    background: #22303a;
+    border-radius: 8px;
+    padding: 1.5em 2em;
+    margin-top: 1em;
+    color: #ecf0f1;
+    box-shadow: 0 2px 8px rgba(44, 62, 80, 0.08);
+}
+
+.features-list-box ul {
+    list-style: disc inside;
+    margin: 0;
+    padding-left: 1em;
+}
+
+.features-list-box li {
+    margin-bottom: 0.5em;
+    background: none;
+    border: none;
+    padding: 0;
+}
+
+/* Global link styles for dark theme */
+a {
+    color: #ffd700;
+    text-decoration: underline;
+    transition: color 0.2s;
+}
+
+a:hover, a:focus {
+    color: #fff8dc; /* Lighter gold on hover/focus */
+    text-decoration: underline;
+}
