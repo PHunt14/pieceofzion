@@ -22,12 +22,42 @@
         <div class="tabs" role="tablist" aria-label="Plans">
             <button class="tab active" id="tab-starter" role="tab" aria-selected="true" aria-controls="panel-starter" tabindex="0" data-tab="starter">Starter</button>
             <button class="tab" id="tab-bronze" role="tab" aria-selected="false" aria-controls="panel-bronze" tabindex="-1" data-tab="bronze">Bronze</button>
+            <button class="tab" id="tab-silver" role="tab" aria-selected="false" aria-controls="panel-silver" tabindex="-1" data-tab="silver">Silver</button>
+            <button class="tab" id="tab-gold" role="tab" aria-selected="false" aria-controls="panel-gold" tabindex="-1" data-tab="gold">Gold</button>
         </div>
         <div id="panel-starter" class="tab-content active" role="tabpanel" aria-labelledby="tab-starter">
-            <p>$50 to get started and $50 a month gets a basic hosted website with 3 pages</p>
+            <p>
+                <strong>$50 to get started and $50/month</strong><br>
+                Selection of one of our templates with your choice of color themes.<br>
+                Includes up to 3 pages.
+            </p>
         </div>
         <div id="panel-bronze" class="tab-content bronze-tab" role="tabpanel" aria-labelledby="tab-bronze" hidden>
-            <p>$150 to get started and $150 a month gets a basic business site with monthly updates</p>
+            <p>
+                <strong>$150 to get started and $150/month</strong><br>
+                Everything in Starter, plus:<br>
+                &bull; 2 additional pages (total 5 pages)<br>
+                &bull; 1 additional monthly update (2 total per month)
+            </p>
+        </div>
+        <div id="panel-silver" class="tab-content silver-tab" role="tabpanel" aria-labelledby="tab-silver" hidden>
+            <p>
+                <strong>$400 to get started and $200/month</strong><br>
+                Custom-designed site (up to 6 pages).<br>
+                Connection to any social media sites included.<br>
+                Includes another monthly update (3 total per month).<br>
+                Hosted web mail included.
+            </p>
+        </div>
+        <div id="panel-gold" class="tab-content gold-tab" role="tabpanel" aria-labelledby="tab-gold" hidden>
+            <p>
+                <strong>$600 to get started and $300/month</strong><br>
+                Everything in Silver, plus:<br>
+                &bull; Weekly updates (4 per month) + 1 additional update (5 total per month)<br>
+                &bull; Priority support<br>
+                &bull; Advanced SEO optimization<br>
+                &bull; Quarterly site performance reports
+            </p>
         </div>
 
         <!-- Features Section Start -->
@@ -36,7 +66,7 @@
             <div class="features-list-box">
                 <ul>
                     <li>99.9% Uptime Guarantee</li>
-                    <li>1 Monthly Website Update</li>
+                    <li>1 Monthly Website Update (more with higher plans)</li>
                     <li>Enterprise-Grade Security</li>
                     <li>Daily Automated Backups</li>
                     <li>SSL Certificate Included</li>
@@ -49,8 +79,21 @@
             </div>
         </section>
         <!-- Features Section End -->
-
-        <p>Looking for a more complex setup? We have the right solution for you! <a href="contact.html">Contact us </a> today!</p>
+        <section class="plan-specials">
+            <div class="special-box">
+                <p>
+                    <strong>Annual Discount:</strong>
+                    Pay for 1 year up front and get 2 months free (16.66% discount)!
+                </p>
+                <p>
+                    <strong>Referral Bonus:</strong>
+                    Refer a new client, and if they sign up for a plan of equal or greater value, you’ll receive a 10% discount on your monthly fee for each successful referral—up to a maximum of 10 referrals (that’s up to 100% off your monthly fee)!
+                </p>
+            </div>
+        </section>
+        <p>
+            Looking for a different solution? We can help! <a href="contact.html">Contact us</a> today!
+        </p>
     </main>
     <footer id="site-footer"></footer>
     <script>
