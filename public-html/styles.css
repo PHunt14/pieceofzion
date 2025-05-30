@@ -258,3 +258,144 @@ main ul li,
     margin: 0;
     display: block;
 }
+
+/* --- Tabbed Plans Styles --- */
+.tabs {
+    display: flex;
+    border-bottom: 2px solid #34495e;
+    margin-bottom: 1em;
+    gap: 0.5em;
+}
+.tab {
+    padding: 10px 24px;
+    cursor: pointer;
+    background: #2c3e50;
+    color: #ecf0f1;
+    border: none;
+    outline: none;
+    transition: background 0.2s;
+    font-size: 1em;
+    border-radius: 6px 6px 0 0;
+}
+.tab.active,
+.tab:focus,
+.tab:hover {
+    background: #34495e;
+    color: #fff;
+}
+.tab[aria-selected="true"] {
+    font-weight: bold;
+    border-bottom: 2px solid #fff;
+}
+.tab-content {
+    display: none;
+    padding: 1em 0;
+    background: #22303a;
+    border-radius: 0 0 6px 6px;
+}
+.tab-content.active {
+    display: block;
+}
+.bronze-tab {
+    background: linear-gradient(135deg, #b08d57 60%, #22303a 100%);
+    color: #fff8e1;
+}
+.bronze-tab .tab {
+    background: #b08d57;
+    color: #22303a;
+}
+
+/* Bronze tab button when active or hovered */
+#tab-bronze.active,
+#tab-bronze:focus,
+#tab-bronze:hover {
+    background: linear-gradient(135deg, #b08d57 80%, #8c6c3f 100%);
+    color: #fff8e1;
+}
+
+.silver-tab {
+    background: linear-gradient(135deg, #c0c0c0 60%, #22303a 100%);
+    color: #222;
+}
+#tab-silver.active,
+#tab-silver:focus,
+#tab-silver:hover {
+    background: linear-gradient(135deg, #c0c0c0 80%, #888 100%);
+    color: #22303a;
+}
+
+.gold-tab {
+    background: linear-gradient(135deg, #ffd700 60%, #22303a 100%);
+    color: #222;
+}
+#tab-gold.active,
+#tab-gold:focus,
+#tab-gold:hover {
+    background: linear-gradient(135deg, #ffd700 80%, #bfa100 100%);
+    color: #22303a;
+}
+
+.plan-features {
+    margin: 2em 0;
+}
+
+.plan-features h2 {
+    margin-top: 0;
+    color: #ffd700;
+    font-size: 1.0em;
+    letter-spacing: 1px;
+}
+
+.features-list-box {
+    background: #22303a;
+    border-radius: 8px;
+    padding: 1.5em 2em;
+    margin-top: 1em;
+    color: #ecf0f1;
+    box-shadow: 0 2px 8px rgba(44, 62, 80, 0.08);
+}
+
+.features-list-box ul {
+    list-style: disc inside;
+    margin: 0;
+    padding-left: 1em;
+}
+
+.features-list-box li {
+    margin-bottom: 0.5em;
+    background: none;
+    border: none;
+    padding: 0;
+}
+
+/* Global link styles for dark theme */
+a {
+    color: #ffd700;
+    text-decoration: underline;
+    transition: color 0.2s;
+}
+
+a:hover, a:focus {
+    color: #fff8dc; /* Lighter gold on hover/focus */
+    text-decoration: underline;
+}
+
+.plan-specials {
+    margin: 2em 0 1em 0;
+    display: flex;
+    justify-content: center;
+}
+
+.special-box {
+    background: #22303a;
+    border-left: 5px solid #ffd700;
+    border-radius: 8px;
+    padding: 1.2em 2em;
+    color: #ecf0f1;
+    max-width: 600px;
+    box-shadow: 0 2px 8px rgba(44, 62, 80, 0.08);
+}
+
+.special-box strong {
+    color: #ffd700;
+}
